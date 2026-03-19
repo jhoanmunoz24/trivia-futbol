@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+@theme {
+  /*FONTS*/
+
+  --font-family-zalando: 'Zalando Sans', sans-serif;
+
+  --color-dark-amethyst-50: oklch(95.54% 0.021 320.99);
+  --color-dark-amethyst-100: oklch(91.06% 0.041 322.15);
+  --color-dark-amethyst-200: oklch(82.21% 0.085 321.73);
+  --color-dark-amethyst-300: oklch(73.34% 0.13 322.15);
+  --color-dark-amethyst-400: oklch(64.94% 0.172 321.97);
+  --color-dark-amethyst-500: oklch(57.43% 0.207 322.06);
+  --color-dark-amethyst-600: oklch(48.88% 0.174 321.91);
+  --color-dark-amethyst-700: oklch(40.1% 0.139 322.26);
+  --color-dark-amethyst-800: oklch(30.66% 0.102 322.07);
+  --color-dark-amethyst-900: oklch(20.57% 0.056 322.69);
+  --color-dark-amethyst-950: oklch(17.24% 0.042 320.77);
+
+  --color-stormy-teal-50: oklch(97.2% 0.02 208.14);
+  --color-stormy-teal-100: oklch(94.33% 0.04 212.23);
+  --color-stormy-teal-200: oklch(89.33% 0.075 210.68);
+  --color-stormy-teal-300: oklch(84.63% 0.106 212.3);
+  --color-stormy-teal-400: oklch(80.58% 0.127 214.58);
+  --color-stormy-teal-500: oklch(77.19% 0.137 217.68);
+  --color-stormy-teal-600: oklch(65.48% 0.116 217.65);
+  --color-stormy-teal-700: oklch(53.18% 0.093 216.76);
+  --color-stormy-teal-800: oklch(40.12% 0.068 215.1);
+  --color-stormy-teal-900: oklch(25.59% 0.043 215.66);
+  --color-stormy-teal-950: oklch(20.89% 0.034 212.05);
+
+  --color-turquoise-50: oklch(97.6% 0.021 181.89);
+  --color-turquoise-100: oklch(95.23% 0.042 181.59);
+  --color-turquoise-200: oklch(90.9% 0.08 180.13);
+  --color-turquoise-300: oklch(87.1% 0.113 178.36);
+  --color-turquoise-400: oklch(83.92% 0.137 176.67);
+  --color-turquoise-500: oklch(81.1% 0.15 174.1);
+  --color-turquoise-600: oklch(68.88% 0.127 174.05);
+  --color-turquoise-700: oklch(55.8% 0.102 173.8);
+  --color-turquoise-800: oklch(41.93% 0.075 174.39);
+  --color-turquoise-900: oklch(26.8% 0.045 175.9);
+  --color-turquoise-950: oklch(21.67% 0.035 178.72);
+
+  --color-green-yellow-50: oklch(98.52% 0.035 126.48);
+  --color-green-yellow-100: oklch(97% 0.067 125.69);
+  --color-green-yellow-200: oklch(94.31% 0.131 127.25);
+  --color-green-yellow-300: oklch(92.29% 0.189 128.62);
+  --color-green-yellow-400: oklch(90.42% 0.229 130.61);
+  --color-green-yellow-500: oklch(88.98% 0.251 133.01);
+  --color-green-yellow-600: oklch(75.3% 0.212 132.91);
+  --color-green-yellow-700: oklch(61.02% 0.17 132.51);
+  --color-green-yellow-800: oklch(45.51% 0.125 131.92);
+  --color-green-yellow-900: oklch(28.9% 0.076 129.92);
+  --color-green-yellow-950: oklch(23.45% 0.06 128.8);
+
+  --color-light-green-50: oklch(97.84% 0.04 138.46);
+  --color-light-green-100: oklch(95.81% 0.08 139.55);
+  --color-light-green-200: oklch(92.36% 0.156 139.6);
+  --color-light-green-300: oklch(89.77% 0.221 139.72);
+  --color-light-green-400: oklch(87.99% 0.268 140.43);
+  --color-light-green-500: oklch(87.03% 0.29 141.51);
+  --color-light-green-600: oklch(73.59% 0.244 141.41);
+  --color-light-green-700: oklch(59.51% 0.197 141.22);
+  --color-light-green-800: oklch(44.52% 0.146 140.93);
+  --color-light-green-900: oklch(28.16% 0.09 139.75);
+  --color-light-green-950: oklch(22.91% 0.072 138.87);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-family-zalando);
+    
+  }
+}

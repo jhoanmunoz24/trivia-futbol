@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/peak_card.png';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 const Header = () => {
  const menu = ['Inicio','Como jugar','Nosotros','Redes']
   return (
@@ -19,7 +19,7 @@ const Header = () => {
         <div>
           <div className='flex gap-5 group'>
             {menu.map((item)=> (
-                <Link key={item} className='hover:bg-black/90 hover:rounded-full px-4 py-2 text-nowrap hover:transition-all hover:duration-500'>{item}</Link>
+                <Link to={item} key={item} className='hover:bg-black/90 hover:rounded-full px-4 py-2 text-nowrap hover:transition-all hover:duration-500'>{item}</Link>
             ))}
           </div>
         </div>

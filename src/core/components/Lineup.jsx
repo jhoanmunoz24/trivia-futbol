@@ -1,6 +1,6 @@
 import React from 'react';
-import Pitch from '../../assets/field2.svg';
-import Bale from '../../assets/skeleton_card.png';
+import Pitch from '../../assets/Field.webp';
+import Player from '../../assets/skeleton_card.webp';
 import PlayerCard from './PlayerCard'
 const Lineup = () => {
   // Formación 4-3-3 - Define las posiciones en el campo
@@ -23,17 +23,17 @@ const Lineup = () => {
   ];
 
   const players = [
-    { id: 1, name: 'PT', image: Bale },
-    { id: 2, name: 'DFC', image: Bale },
-    { id: 3, name: 'DFC', image: Bale },
-    { id: 4, name: 'DFC', image: Bale },
-    { id: 5, name: 'DFC', image: Bale },
-    { id: 6, name: 'MC', image: Bale },
-    { id: 7, name: 'MC', image: Bale },
-    { id: 8, name: 'MC', image: Bale },
-    { id: 9, name: 'DC', image: Bale },
-    { id: 10, name: 'DC', image: Bale },
-    { id: 11, name: 'DC', image: Bale },
+    { id: 1, name: 'PT', image: Player },
+    { id: 2, name: 'DFC', image: Player },
+    { id: 3, name: 'DFC', image: Player },
+    { id: 4, name: 'DFC', image: Player },
+    { id: 5, name: 'DFC', image: Player },
+    { id: 6, name: 'MC', image: Player },
+    { id: 7, name: 'MC', image: Player },
+    { id: 8, name: 'MC', image: Player },
+    { id: 9, name: 'DC', image: Player },
+    { id: 10, name: 'DC', image: Player },
+    { id: 11, name: 'DC', image: Player },
   ];
   return (
     <div className='w-screen  flex items-center justify-start '>

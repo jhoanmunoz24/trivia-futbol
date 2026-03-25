@@ -7,6 +7,7 @@ import { store } from './core/stores/store';
 import './index.css';
 
 import Home from './core/pages/Home.jsx';
+import BiddingGame from './core/pages/BiddingGame.jsx';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home/>
   },
+  {
+    path: "/bidding/:code",
+    element: <BiddingGame/>
+    
+  }
 ]);
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -30,35 +30,47 @@ app.post("/api/room/create", (req, res) => {
 });
 
 io.on("connect", (socket) => {
- 
-
   socket.on("join-room", async ({ code, name }) => {
     const room = rooms.get(code);
     if (!room) {
-      console.log("Sala no encontrada")
-      return socket.emit("room-error", "Sala no encontrada" );
+      console.log("Sala no encontrada");
+      return socket.emit("room-error", "Sala no encontrada");
     }
+
+    const userExists = room.users.some((u) => u.id == socket.id);
 
     socket.join(code);
     socket.data.code = code;
     socket.data.name = name;
+
     room.users.push({ id: socket.id, name });
 
     const sockets = await io.in(code).fetchSockets();
     const usuarios = sockets.map((s) => ({ id: s.id, name: s.data.name }));
 
-    socket.emit("room-joined", { code, usuarios });
+    socket.emit("room-joined", { name, code, usuarios });
 
     socket.to(code).emit("user-joined", { name, usuarios });
 
     console.log(
       "Entro un usuario a la sala" + "Codigo: " + code + "Nombre: " + name,
     );
-    
-    console.log("Usuarios en la sala: ", usuarios);
-    console.log(socket.rooms);
 
-    console.log("SALAS", Array.from(io.sockets.adapter.rooms.keys()));
+    console.log("Usuarios en la sala: ", usuarios);
+
+    console.log("SALAS", Array.from(rooms.keys()));
+  });
+
+  socket.on("run-game", ({ code }) => {
+    const room = rooms.get(code);
+    if (!room) return socket.emit("room-error", "Sala no encontrada");
+    if (room.users.length < 2) {
+      return socket.emit("room-error", "Se necesitan al menos 2 jugadores");
+    }
+    
+    console.log("Iniciando juego");
+
+    io.to(code).emit("game-started");
   });
 });
 

@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
@@ -8,7 +8,7 @@
 @theme {
   /*FONTS*/
 
-  --font-family-zalando: 'Zalando Sans', sans-serif;
+  --font-family-zalando: "Zalando Sans", sans-serif;
 
   --color-dark-amethyst-50: oklch(95.54% 0.021 320.99);
   --color-dark-amethyst-100: oklch(91.06% 0.041 322.15);
@@ -75,7 +75,6 @@
   body {
     font-family: var(--font-family-zalando);
     @apply bg-background text-foreground;
-
   }
   * {
     @apply border-border outline-ring/50;
@@ -88,10 +87,9 @@
 /*---break---*/
 
 @theme inline {
-
   --font-heading: var(--font-sans);
 
-  --font-sans: 'Geist Variable', sans-serif;
+  --font-sans: "Geist Variable", sans-serif;
 
   --color-sidebar-ring: var(--sidebar-ring);
 
@@ -173,10 +171,9 @@
 /*---break---*/
 
 :root {
-
   --background: oklch(1 0 0);
 
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(1 0 0);
 
   --card: oklch(1 0 0);
 
@@ -242,7 +239,6 @@
 /*---break---*/
 
 .dark {
-
   --background: oklch(0.145 0 0);
 
   --foreground: oklch(0.985 0 0);

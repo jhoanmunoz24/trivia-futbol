@@ -2,7 +2,7 @@
 import {Button} from '../../components/ui/button';
 import JoinRoom from './JoinRoom';
 import { useState } from 'react';
-import socket from '../utils/socket';
+
 import axios from 'axios';
 const LobbyModal = () => {
   

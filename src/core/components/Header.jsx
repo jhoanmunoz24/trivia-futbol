@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/peak_card.png';
+import Logo from '../../assets/ui/peak_card.png';
 import { Link } from 'react-router';
 const Header = () => {
  const menu = ['Inicio','Como jugar','Nosotros','Redes']

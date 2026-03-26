@@ -1,6 +1,6 @@
 import React from 'react';
-import Pitch from '../../assets/Field.webp';
-import Player from '../../assets/skeleton_card.webp';
+import Pitch from '../../assets/ui/field.webp';
+import Player from '../../assets/ui/skeleton_card.webp';
 import PlayerCard from './PlayerCard'
 const Lineup = () => {
   // Formación 4-3-3 - Define las posiciones en el campo

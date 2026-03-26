@@ -4,7 +4,7 @@ import { createServer } from "node:http";
 const PORT = process.env.PORT ?? 3000;
 import { generateRoomCode } from "./utils/generateCode.js";
 import cors from "cors";
-
+import generateLineUp from "./utils/generateLineUp.js";
 const corsOptions = {
   origin: "http://localhost:5173",
   methods: ["GET", "POST"],
@@ -67,10 +67,12 @@ io.on("connect", (socket) => {
     if (room.users.length < 2) {
       return socket.emit("room-error", "Se necesitan al menos 2 jugadores");
     }
-    
+
     console.log("Iniciando juego");
 
-    io.to(code).emit("game-started");
+    const lineUp = generateLineUp(room);
+
+    io.to(code).emit("game-started", { lineUp });
   });
 });
 

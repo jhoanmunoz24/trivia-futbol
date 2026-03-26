@@ -24,9 +24,10 @@ const JoinRoom = () => {
     socket.on("room-error", (msg) => {
       console.log("Error:", msg); 
     });
-    socket.on("game-started", () => {
+    socket.on("game-started", (data) => {
       console.log("Juego iniciado"); 
-      navigate(`/bidding/${codeRef.current}`);
+      navigate(`/bidding/${codeRef.current}` , {state: {lineUp: data.lineUp}});
+      console.log(data.lineUp)
       setRunGame('Iniciando juego')
     });
 
@@ -60,7 +61,7 @@ const JoinRoom = () => {
       {messages.map((msg, i) => (
         <p key={i}>{msg}</p>
       ))}
-      <Button onClick={handleRunGame} link>Iniciar Juego</Button>
+      <Button onClick={handleRunGame}>Iniciar Juego</Button>
       {runGame}
     </>
   );

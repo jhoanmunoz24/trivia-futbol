@@ -2,12 +2,29 @@ import React from "react";
 import Card from "../../assets/ui/mystery_player.webp";
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import socket from "../utils/socket";
+import { useParams } from "react-router";
 const BiddingPlayer = () => {
   const [bid, setBid] = useState(35);
+  const myID = socket.id;
+  const { code } = useParams();
+  useEffect(() => {
+    socket.on("turn-started", ({ userID, userName }) => {
+      if (userID === myID) {
+        alert("Es tu turno de pujar", userName);
+      } else {
+        console.log("Turno de", userName);
+      }
+    });
 
-  const handleBidChange = (e) => {
-    setBid(e.target.value);
+    return () => {
+      socket.off("turn-started");
+    };
+  }, [myID]);
+
+  const handlePass = (code) => {
+    socket.emit("pass", { code });
   };
   return (
     <div className="h-full w-full bg-black/80 flex justify-center items-center absolute z-100 backdrop-blur-xs">
@@ -22,7 +39,9 @@ const BiddingPlayer = () => {
           </div>
           <div className="flex gap-2">
             <p className="text-2xl text-foreground font-bold">Tu apuesta: </p>
-            <p className="text-2xl text-bold text-destructive font-bold">{bid}M USD</p>
+            <p className="text-2xl text-bold text-destructive font-bold">
+              {bid}M USD
+            </p>
           </div>
         </div>
         <div className="flex justify-center items-center gap-3 ">
@@ -37,7 +56,7 @@ const BiddingPlayer = () => {
             className="w-20"
           ></Input>
           <Button>Apostar</Button>
-          <Button>Pasar Turno</Button>
+          <Button onClick={() => handlePass(code)}>Pasar Turno</Button>
         </div>
       </div>
     </div>

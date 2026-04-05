@@ -7,7 +7,7 @@ const BiddingGame = () => {
   const { state } = useLocation();
   const [lineUp, setLineUp] = useState(state?.lineUp ?? null);
   const { code } = useParams();
-
+  const [showLineUp, setShowLineUp] = useState(false);
   useEffect(() => {
     socket.emit("start-bidding", { code });
     if (!lineUp) {
@@ -19,10 +19,16 @@ const BiddingGame = () => {
     socket.on("turn-started", ({ userID, userName }) => {
       console.log("Es el turno de: ", userName, "Con id: ", userID);
     });
+    socket.on("lineup-update", ({ lineUpPersonal }) => {
+      setLineUp(lineUpPersonal);
+    });
+    
+
+
 
     return () => {
       socket.off("rejoined");
-
+      socket.off("lineup-update");
       socket.off("turn-started");
     };
   }, []);
@@ -37,8 +43,8 @@ const BiddingGame = () => {
   console.log("Lineup pasado por router", lineUp);
   return (
     <>
-      <BiddingPlayer></BiddingPlayer>
-      <Lineup lineUp={lineUp}></Lineup>
+      <BiddingPlayer setShowLineUp={setShowLineUp} showLineUp={showLineUp}></BiddingPlayer>
+      {lineUp && <Lineup lineUp={lineUp} setShowLineUp={setShowLineUp} />}
     </>
   );
 };
